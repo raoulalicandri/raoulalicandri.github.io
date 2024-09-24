@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&B TORVERGATA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>B&B TORVERGATA</h1>
+    </header>
+
+    <!-- Sezione Camere -->
+    <section class="rooms">
+        <div class="room">
+            <h2>Camera 1</h2>
+            <img src="images/camera1.jpg" alt="camera1">
+            <p>Prezzo: 70€ a notte</p>
+            <button onclick="openCalendar(1)">Prenota ora</button>
+        </div>
+        <div class="room">
+            <h2>Camera 2</h2>
+            <img src="images/camera2.jpg" alt="camera2">
+            <p>Prezzo: 70€ a notte</p>
+            <button onclick="openCalendar(2)">Prenota ora</button>
+        </div>
+        <div class="room">
+            <h2>Camera 3</h2>
+            <img src="images/camera3.jpg" alt="camera3">
+            <p>Prezzo: 70€ a notte</p>
+            <button onclick="openCalendar(3)">Prenota ora</button>
+        </div>
+    </section>
+
+    <!-- Calendario per la selezione delle date -->
+    <div id="calendarModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Seleziona le Date</h2>
+            <input type="date" id="checkIn" placeholder="Check-in">
+            <input type="date" id="checkOut" placeholder="Check-out">
+            <button onclick="openForm()">Conferma</button>
+        </div>
+    </div>
+
+    <!-- Modulo di conferma prenotazione -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Inserisci i tuoi dati</h2>
+            <form id="reservationForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="documento">Documento:</label>
+                <select id="documento" name="documento" required>
+                    <option value="carta-identità">Carta d'identità</option>
+                    <option value="passaporto">Passaporto</option>
+                </select>
+
+                <label for="numeroDocumento">Numero documento:</label>
+                <input type="text" id="numeroDocumento" name="numeroDocumento" required>
+
+                <button type="button" onclick="openPayment()">Prosegui</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pagamento -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Inserisci i Dati di Pagamento</h2>
+            <form id="paymentForm">
+                <label for="cardType">Tipo di Carta:</label>
+                <select id="cardType" name="cardType" required>
+                    <option value="visa">Visa</option>
+                    <option value="mastercard">Mastercard</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+
+                <label for="cardNumber">Numero della Carta:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required>
+
+                <label for="expDate">Data di Scadenza:</label>
+                <input type="month" id="expDate" name="expDate" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <button type="submit">Conferma Pagamento</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
